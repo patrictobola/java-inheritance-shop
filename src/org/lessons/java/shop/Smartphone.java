@@ -8,7 +8,7 @@ public class Smartphone extends Prodotto {
 	
 	public Smartphone(String nome, String descrizione, float prezzo, int iva, int codiceImei, int memorySize) {
 		super(nome, descrizione, prezzo, iva);
-		setMemorySize(32);
+		setMemorySize(memorySize);
 		setCodiceImei(super.rndNumber());
 	}
 	

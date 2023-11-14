@@ -6,8 +6,8 @@ public class Televisore extends Prodotto {
 	
 	public Televisore(String nome, String descrizione, float prezzo, int iva, int inch, boolean smart) {
 		super(nome, descrizione, prezzo, iva);
-		setInch(32);
-		setSmart(true);
+		setInch(inch);
+		setSmart(smart);
 		
 	}
 

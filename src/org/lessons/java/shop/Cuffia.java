@@ -6,8 +6,8 @@ public class Cuffia extends Prodotto {
 	
 	public Cuffia(String nome, String descrizione, float prezzo, int iva, String color, String connection) {
 		super(nome, descrizione, prezzo, iva);
-		setColor("Verde");
-		setConnection("Wireless");
+		setColor(color);
+		setConnection(connection);
 	}
 
 	public String getColor() {

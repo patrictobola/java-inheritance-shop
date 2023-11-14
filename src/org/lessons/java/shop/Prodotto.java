@@ -73,10 +73,32 @@ public class Prodotto {
 			double fullPrice = prezzo + (prezzo * iva / 100);
 			return String.format(Locale.US, "%.2f", fullPrice);
 		}
-		public double getDiscountPrice(int n) {
-			double basePrice = Double.parseDouble(getFullPrice());
-			double discount = (basePrice * n) / 100;
-			return basePrice - discount;
+		public double getDiscountPrice(int n, boolean hasCard) {
+		    double basePrice = Double.parseDouble(getFullPrice());
+		    double discount = hasCard ? 0.02 : 0.00;
+
+		    if (this instanceof Smartphone) {
+		        Smartphone smartphone = (Smartphone) this;
+		        if (hasCard && smartphone.getMemorySize() < 32) {
+		            discount += 0.03;  // Accumula uno sconto aggiuntivo del 3% se la memoria è inferiore a 32
+		        }
+		    }
+
+		    if (this instanceof Televisore) {
+		        Televisore televisore = (Televisore) this;
+		        if (hasCard && !televisore.isSmart()) {
+		            discount += 0.08;  // Accumula uno sconto aggiuntivo del 8% se la TV non è smart
+		        }
+		    }
+
+		    if (this instanceof Cuffia) {
+		        Cuffia cuffia = (Cuffia) this;
+		        if (hasCard && cuffia.getConnection().equals("cablate")) {
+		            discount += 0.05;  // Accumula uno sconto aggiuntivo del 5% se la connessione è cablata
+		        }
+		    }
+
+		    return basePrice * (1 - discount);
 		}
 		
 		
@@ -100,7 +122,6 @@ public class Prodotto {
 					+ "Con un iva di: " + iva + "%\n"
 					+ "Il nome esteso è: " + getFullName() + "\n"
 					+ "Il prezzo compreso di iva è: " + getFullPrice() + "€\n"
-					+ "Che è scontato a: " + getDiscountPrice(2) + "€\n"
 					+ "Il codice con pad left è: " + getPaddedCode() + "\n";
 		}
 		

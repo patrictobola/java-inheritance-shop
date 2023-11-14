@@ -1,14 +1,25 @@
 package org.lessons.java.shop;
 
 import java.util.Arrays;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Carrello {
 	public static void main(String[] args) {
 		Scanner in = new Scanner(System.in);
 		Prodotto[] carrello = new Prodotto[10];
+		
+		Boolean hasCard = true;
+		
+		System.out.println("Hai una tessera sconto?");
+		String discountCard = in.next().toLowerCase();
+		if (discountCard.equals("no")) {
+			hasCard = false;
+		}
 		for(int x = 0; x < carrello.length; x++) {
 			
+		
+		
 		System.out.println("Vuoi inserire un nuovo elemento? Si/No: ");
 		String answer = in.next().toLowerCase();
 		
@@ -28,6 +39,9 @@ public class Carrello {
 				System.out.println("Inserisci uno dei 3 prodotti sopracitati");
 			}
 			System.out.println(carrello[x]);
+			if(hasCard) {
+				System.out.println("Il prezzo del prodotto, scontato con la sua tesserà fedeltà è di: " + String.format(Locale.US, "%.2f", carrello[x].getDiscountPrice(2, hasCard)));
+			}
 		}
 		
 		}
