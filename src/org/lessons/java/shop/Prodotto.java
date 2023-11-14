@@ -11,11 +11,11 @@ public class Prodotto {
 	private int codice;
 	private String nome;
 	private String descrizione;
-	private float prezzo;
+	private double prezzo;
 	private int iva;
 	
 	
-		public Prodotto(String nome, String descrizione, float prezzo, int iva) {
+		public Prodotto(String nome, String descrizione, double prezzo, int iva) {
 			setCodice(rndNumber());
 			setNome(nome);
 			setDescrizione(descrizione);
@@ -60,19 +60,25 @@ public class Prodotto {
 		}
 		
 //		Prezzo
-		public float getPrezzo() {
+		public double getPrezzo() {
 			return prezzo;
 		}
-		public void setPrezzo(float prezzo) {
+		public void setPrezzo(double prezzo) {
 			if(prezzo <= 0) {
 				return ;
 			}
 			this.prezzo = prezzo;
 		}
 		public String getFullPrice() {
-			float fullPrice = prezzo + (prezzo * iva / 100);
+			double fullPrice = prezzo + (prezzo * iva / 100);
 			return String.format(Locale.US, "%.2f", fullPrice);
 		}
+		public double getDiscountPrice(int n) {
+			double basePrice = Double.parseDouble(getFullPrice());
+			double discount = (basePrice * n) / 100;
+			return basePrice - discount;
+		}
+		
 		
 //		Iva
 		public int getIva() {
@@ -94,6 +100,7 @@ public class Prodotto {
 					+ "Con un iva di: " + iva + "%\n"
 					+ "Il nome esteso è: " + getFullName() + "\n"
 					+ "Il prezzo compreso di iva è: " + getFullPrice() + "€\n"
+					+ "Che è scontato a: " + getDiscountPrice(2) + "€\n"
 					+ "Il codice con pad left è: " + getPaddedCode() + "\n";
 		}
 		

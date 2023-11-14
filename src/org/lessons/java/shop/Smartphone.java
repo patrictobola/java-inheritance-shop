@@ -36,7 +36,7 @@ public class Smartphone extends Prodotto {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString()
-				+ "Lo smartphone che hai scelto è di: " + getMemorySize() + "\n"  
+				+ "Lo smartphone che hai scelto è da: " + getMemorySize() + "GB\n"  
 				+ "Con associato questo codice IMEI: " + getCodiceImei();
 	}
 }
