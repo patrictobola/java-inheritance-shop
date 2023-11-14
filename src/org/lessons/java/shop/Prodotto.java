@@ -24,7 +24,7 @@ public class Prodotto {
 		}
 		
 //		Altri metodi
-		private int rndNumber() {
+		protected int rndNumber() {
 			Random in = new Random();
 			return in.nextInt(9_999_999);
 		}
