@@ -80,21 +80,21 @@ public class Prodotto {
 		    if (this instanceof Smartphone) {
 		        Smartphone smartphone = (Smartphone) this;
 		        if (hasCard && smartphone.getMemorySize() < 32) {
-		            discount += 0.03;  // Accumula uno sconto aggiuntivo del 3% se la memoria è inferiore a 32
+		            discount = 0.05;
 		        }
 		    }
 
 		    if (this instanceof Televisore) {
 		        Televisore televisore = (Televisore) this;
 		        if (hasCard && !televisore.isSmart()) {
-		            discount += 0.08;  // Accumula uno sconto aggiuntivo del 8% se la TV non è smart
+		            discount = 0.1;
 		        }
 		    }
 
 		    if (this instanceof Cuffia) {
 		        Cuffia cuffia = (Cuffia) this;
 		        if (hasCard && cuffia.getConnection().equals("cablate")) {
-		            discount += 0.05;  // Accumula uno sconto aggiuntivo del 5% se la connessione è cablata
+		            discount = 0.07;
 		        }
 		    }
 
