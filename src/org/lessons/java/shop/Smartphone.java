@@ -31,4 +31,12 @@ public class Smartphone extends Prodotto {
 	public int getCodiceImei() {
 		return codiceImei;
 	}
+	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString()
+				+ "Lo smartphone che hai scelto è di: " + getMemorySize() + "\n"  
+				+ "Con associato questo codice IMEI: " + getCodiceImei();
+	}
 }

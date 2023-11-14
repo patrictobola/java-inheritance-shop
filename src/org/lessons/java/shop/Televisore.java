@@ -27,4 +27,11 @@ public class Televisore extends Prodotto {
 		this.smart = smart;
 	}
 	
+	@Override
+	public String toString() {
+
+		return super.toString()
+				+ "La TV che hai scelto è di: " + getInch() + "''\n"  +
+			            (isSmart() ? "Ed è una smart tv!" : "E non è una smart tv");
+	}
 }
